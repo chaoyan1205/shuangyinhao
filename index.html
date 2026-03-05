@@ -3,117 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOWS 双引号 | 品牌创意与出海增长实验室</title>
+    <title>HOWS 双引号 | Core Leadership</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background: #050505; color: white; font-family: 'PingFang SC', system-ui, sans-serif; }
-        .glow { position: fixed; width: 600px; height: 600px; background: radial-gradient(circle, rgba(99,102,241,0.1) 0%, transparent 70%); top: -200px; right: -200px; z-index: -1; pointer-events: none; }
-        
-        /* 核心成员板块初始状态：隐藏且下移 */
-        #team-section { 
-            display: none; 
-            opacity: 0; 
-            transform: translateY(40px); 
-            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        
-        /* 激活状态 */
-        #team-section.active { display: grid; opacity: 1; transform: translateY(0); }
-
-        .member-card { 
-            background: rgba(255, 255, 255, 0.02); 
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05); 
-            transition: all 0.4s ease;
-        }
-        .member-card:hover { border-color: #6366f1; background: rgba(255, 255, 255, 0.05); }
-
-        .btn-glow {
-            box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
-            transition: all 0.3s ease;
-        }
-        .btn-glow:hover { box-shadow: 0 0 30px rgba(99, 102, 241, 0.5); transform: scale(1.05); }
+        body { background: #000; color: #fff; font-family: 'PingFang SC', 'Inter', sans-serif; }
+        .bg-glow { position: fixed; width: 100vw; height: 100vh; background: radial-gradient(circle at 50% 50%, #121225 0%, #000 100%); z-index: -1; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .member-card { transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1); cursor: pointer; overflow: hidden; height: 500px; }
+        .member-card:hover { border-color: #6366f1; background: rgba(255, 255, 255, 0.06); }
+        .member-card.expanded { height: 850px; border-color: #6366f1; background: rgba(255, 255, 255, 0.08); }
+        .brand-tag { font-size: 10px; padding: 2px 8px; border-radius: 4px; background: rgba(255,255,255,0.05); color: #999; border: 1px solid rgba(255,255,255,0.1); }
     </style>
 </head>
-<body class="overflow-x-hidden">
-    <div class="glow"></div>
+<body class="py-20 px-6">
+    <div class="bg-glow"></div>
     
-    <div class="max-w-7xl mx-auto px-8 py-24">
-        <header class="mb-32">
-            <h1 class="text-8xl font-black italic tracking-tighter mb-6">HOWS<span class="text-indigo-500">.</span></h1>
-            <p class="text-gray-400 text-xl max-w-2xl leading-relaxed tracking-wide">
-                专注新锐品牌力打造的<span class="text-white font-bold">品牌营销咨询 & 创意热店</span>。
-                打破全球营销边界，助力企业发展无限。
-            </p>
-            
-            <button onclick="toggleTeam()" class="mt-12 px-8 py-4 bg-indigo-600 rounded-full text-sm font-bold tracking-widest btn-glow uppercase">
-                Explore Core Team // 核心成员
-            </button>
+    <div class="max-w-7xl mx-auto">
+        <header class="text-center mb-20">
+            <h1 class="text-6xl font-black italic tracking-tighter mb-4">HOWS<span class="text-indigo-500">.</span> TEAM</h1>
+            <p class="text-gray-500 font-mono text-xs tracking-[0.5em] uppercase">核心合伙人与增长专家</p>
         </header>
 
-        <div id="team-section" class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
             
-            <div class="member-card p-10 rounded-[2.5rem]">
-                <div class="w-16 h-16 bg-white/5 rounded-2xl mb-6 flex items-center justify-center font-bold text-indigo-400">AD</div>
-                <h3 class="text-2xl font-bold mb-1">王皓頔 Andy</h3>
-                <p class="text-indigo-500 text-[10px] font-mono tracking-widest mb-6 uppercase">Founder / Strategist</p>
-                <div class="text-sm text-gray-400 space-y-3 leading-relaxed">
-                    <p>● Dentsu电通客户总监，英国南安普顿本硕。</p>
-                    <p>● NaturEcho Inc（美国）创始人，引源文创联合创始人。</p>
-                    <p>● 擅长整合营销传播与多方资源嫁接。</p>
+            <div class="member-card glass rounded-[3rem] p-10 relative flex flex-col" onclick="this.classList.toggle('expanded')">
+                <div class="mb-8">
+                    <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl mb-6 shadow-lg shadow-indigo-500/20"></div>
+                    <h2 class="text-3xl font-bold">王皓頔 Andy</h2>
+                    <p class="text-indigo-400 text-xs font-mono mt-2 tracking-widest uppercase">Founder / Brand Strategist</p>
                 </div>
+                
+                <div class="space-y-6 text-sm text-gray-300">
+                    <p class="text-indigo-200 font-medium">英国南安普顿大学 & 伯明翰城市大学产品设计本硕</p>
+                    <p class="leading-relaxed">NaturEcho Jewelry 品牌主理人，引源文创联合创始人。拥有深厚的国际化视野，曾任 Dentsu 电通客户总监及英国 FEC 营销总监。</p>
+                    
+                    <div class="pt-6 border-t border-white/10 space-y-4">
+                        <h4 class="text-white font-bold">核心擅长</h4>
+                        <p class="text-gray-400">全面负责品牌塑造与资源整合，主导英国及海外市场营销策略。精通整合营销传播（IMC）与多方资源嫁接，助力企业实现从创意到商业目标的闭环。</p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="brand-tag">资源整合</span><span class="brand-tag">项目统筹</span><span class="brand-tag">创新思维</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-auto pt-8 text-[10px] text-gray-600 font-mono tracking-widest">CLICK TO EXPAND DETAILS +</div>
             </div>
 
-            <div class="member-card p-10 rounded-[2.5rem]">
-                <div class="w-16 h-16 bg-white/5 rounded-2xl mb-6 flex items-center justify-center font-bold text-indigo-400">HW</div>
-                <h3 class="text-2xl font-bold mb-1">吴昊 Howie</h3>
-                <p class="text-indigo-500 text-[10px] font-mono tracking-widest mb-6 uppercase">Creative Partner</p>
-                <div class="text-sm text-gray-400 space-y-3 leading-relaxed">
-                    <p>● 10年资深广告人，曾任利欧数字/Carnivo美术指导。</p>
-                    <p>● 服务过优衣库、肯德基、爱彼迎、VIVO等30+知名品牌。</p>
-                    <p>● 中国创意设计年鉴年度设计师。</p>
+            <div class="member-card glass rounded-[3rem] p-10 relative flex flex-col" onclick="this.classList.toggle('expanded')">
+                <div class="mb-8">
+                    <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-600 rounded-2xl mb-6 shadow-lg shadow-rose-500/20"></div>
+                    <h2 class="text-3xl font-bold">吴昊 Howie</h2>
+                    <p class="text-rose-400 text-xs font-mono mt-2 tracking-widest uppercase">Creative Partner / Art Director</p>
                 </div>
+                
+                <div class="space-y-6 text-sm text-gray-300">
+                    <p class="text-rose-200 font-medium">中国创意设计年鉴-年度设计师</p>
+                    <p class="leading-relaxed">从业10年的资深广告人，曾任利欧数字艺术总监。不仅受过行业奖项垂青，更是深谙品牌视觉与自传播逻辑的实战派。</p>
+                    
+                    <div class="pt-6 border-t border-white/10 space-y-4">
+                        <h4 class="text-white font-bold">服务品牌 (Partial List)</h4>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="brand-tag">UNIQLO</span><span class="brand-tag">KFC</span><span class="brand-tag">Airbnb</span><span class="brand-tag">红旗汽车</span><span class="brand-tag">VIVO</span><span class="brand-tag">IQOO</span><span class="brand-tag">吉利汽车</span>
+                        </div>
+                        <p class="text-gray-400 pt-2">对媒介传播、社交推广到线下体验设计有深刻理解，擅长用视觉表达解决商业痛点。</p>
+                    </div>
+                </div>
+                <div class="mt-auto pt-8 text-[10px] text-gray-600 font-mono tracking-widest">CLICK TO EXPAND DETAILS +</div>
             </div>
 
-            <div class="member-card p-10 rounded-[2.5rem]">
-                <div class="w-16 h-16 bg-white/5 rounded-2xl mb-6 flex items-center justify-center font-bold text-indigo-400">YC</div>
-                <h3 class="text-2xl font-bold mb-1">闫超 Yanchao</h3>
-                <p class="text-indigo-500 text-[10px] font-mono tracking-widest mb-6 uppercase">Growth Expert</p>
-                <div class="text-sm text-gray-400 space-y-3 leading-relaxed">
-                    <p>● 美国本硕MBA & 墨尔本大学MIS背景。</p>
-                    <p>● 品牌出海战略专家，数据分析与增长系统架构师。</p>
-                    <p>● 深耕DTC出海，构建「五维增长」体系。</p>
+            <div class="member-card glass rounded-[3rem] p-10 relative flex flex-col" onclick="this.classList.toggle('expanded')">
+                <div class="mb-8">
+                    <div class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl mb-6 shadow-lg shadow-emerald-500/20"></div>
+                    <h2 class="text-3xl font-bold">闫超 Yanchao</h2>
+                    <p class="text-emerald-400 text-xs font-mono mt-2 tracking-widest uppercase">Growth Strategist</p>
                 </div>
+                
+                <div class="space-y-6 text-sm text-gray-300">
+                    <p class="text-emerald-200 font-medium">美国 MBA & 墨尔本大学 MIS (信息系统)</p>
+                    <p class="leading-relaxed">系统接受商业战略与全球市场训练，具备数据分析与增长系统架构能力。深耕 DTC 品牌规模化增长体系。</p>
+                    
+                    <div class="pt-6 border-t border-white/10 space-y-4">
+                        <h4 class="text-white font-bold">五维增长体系</h4>
+                        <div class="grid grid-cols-1 gap-2 text-xs text-gray-400">
+                            <p>1. 市场选择：精准定位高潜力赛道</p>
+                            <p>2. 产品结构：优化 SKU 与 AOV 策略</p>
+                            <p>3. 增长模型：Meta / Google 广告闭环</p>
+                            <p>4. 数据系统：独立站重构与追踪</p>
+                            <p>5. 利润结构：爆品测试与成本模型设计</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-auto pt-8 text-[10px] text-gray-600 font-mono tracking-widest">CLICK TO EXPAND DETAILS +</div>
             </div>
 
         </div>
-
-        <footer class="mt-32 border-t border-white/10 pt-12 flex justify-between items-center text-[10px] font-mono text-gray-600 tracking-widest">
-            <div>2025 HOWS LAB</div>
-            <div class="flex gap-8">
-                <span>BRANDING</span>
-                <span>GROWTH</span>
-                <span>CREATIVE</span>
-            </div>
-        </footer>
     </div>
 
     <script>
-        function toggleTeam() {
-            const team = document.getElementById('team-section');
-            if (team.style.display === 'grid') {
-                team.style.opacity = '0';
-                team.style.transform = 'translateY(40px)';
-                setTimeout(() => { team.style.display = 'none'; }, 500);
-            } else {
-                team.style.display = 'grid';
-                // 触发重绘以实现动画
-                setTimeout(() => {
-                    team.style.opacity = '1';
-                    team.style.transform = 'translateY(0)';
-                }, 10);
-            }
-        }
+        // 添加点击交互逻辑：点击时高度拉伸展示更多内容
     </script>
 </body>
 </html>
