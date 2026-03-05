@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaoyan | Creative Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background: #050505; color: white; font-family: 'Inter', system-ui, sans-serif; }
+        .glow { position: fixed; width: 600px; height: 600px; background: radial-gradient(circle, rgba(99,102,241,0.1) 0%, transparent 70%); top: -200px; left: -200px; z-index: -1; }
+        .glass-card { 
+            background: rgba(255, 255, 255, 0.02); 
+            backdrop-filter: blur(15px); 
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); 
+        }
+        .glass-card:hover { 
+            background: rgba(255, 255, 255, 0.05); 
+            transform: translateY(-10px); 
+            border-color: rgba(99,102,241,0.4);
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+    <div class="glow"></div>
+    <div class="max-w-6xl mx-auto px-8 py-24">
+        <header class="mb-32">
+            <h1 class="text-8xl font-black tracking-tighter italic uppercase leading-none">
+                SHUANG<br><span class="text-indigo-500">YINHAO.</span>
+            </h1>
+            <p class="mt-8 text-gray-500 tracking-[0.5em] uppercase text-xs font-mono">Creative Collective // @chaoyan1205</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="glass-card p-12 rounded-[3rem]">
+                <div class="w-16 h-16 bg-indigo-600 rounded-2xl mb-10 flex items-center justify-center text-2xl font-bold shadow-2xl shadow-indigo-500/20">CY</div>
+                <h3 class="text-3xl font-bold mb-2">Chao Yan</h3>
+                <p class="text-indigo-400 font-mono text-xs mb-8 tracking-widest uppercase">Lead Visionary</p>
+                <p class="text-gray-400 leading-relaxed font-light text-lg italic">
+                    “在‘双引号’里，我们捕捉灵感。代码不只是工具，它是我们对未来审美的一种表达方式。”
+                </p>
+            </div>
+            <div class="glass-card p-12 rounded-[3rem] border-dashed border-gray-800 flex flex-col justify-center items-center text-center">
+                <p class="text-gray-500 text-xl font-light mb-8">正在寻找下一个<br>具有独特灵魂的合作者</p>
+                <div class="px-8 py-3 bg-white text-black rounded-full text-sm font-bold hover:bg-indigo-500 hover:text-white transition-colors cursor-pointer">
+                    JOIN THE LAB
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
