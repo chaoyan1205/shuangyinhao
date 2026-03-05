@@ -2,104 +2,70 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOWS 双引号 | Core Leadership</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background: #000; color: #fff; font-family: 'PingFang SC', 'Inter', sans-serif; }
-        .bg-glow { position: fixed; width: 100vw; height: 100vh; background: radial-gradient(circle at 50% 50%, #121225 0%, #000 100%); z-index: -1; }
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); }
-        .member-card { transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1); cursor: pointer; overflow: hidden; height: 500px; }
-        .member-card:hover { border-color: #6366f1; background: rgba(255, 255, 255, 0.06); }
-        .member-card.expanded { height: 850px; border-color: #6366f1; background: rgba(255, 255, 255, 0.08); }
-        .brand-tag { font-size: 10px; padding: 2px 8px; border-radius: 4px; background: rgba(255,255,255,0.05); color: #999; border: 1px solid rgba(255,255,255,0.1); }
+        body { background: #000; color: #fff; font-family: 'PingFang SC', sans-serif; overflow-x: hidden; }
+        .member-card { 
+            background: rgba(255, 255, 255, 0.03); 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            cursor: pointer; height: 420px;
+        }
+        .member-card:hover { border-color: #6366f1; transform: translateY(-10px); background: rgba(255, 255, 255, 0.06); }
+        .member-card.expanded { height: 850px; border-color: #6366f1; }
+        .details { opacity: 0; transition: all 0.5s ease; pointer-events: none; }
+        .expanded .details { opacity: 1; pointer-events: auto; }
+        .brand-tag { font-size: 10px; padding: 2px 8px; border-radius: 4px; background: rgba(99, 102, 241, 0.1); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.2); margin: 2px; display: inline-block; }
     </style>
 </head>
 <body class="py-20 px-6">
-    <div class="bg-glow"></div>
-    
     <div class="max-w-7xl mx-auto">
-        <header class="text-center mb-20">
-            <h1 class="text-6xl font-black italic tracking-tighter mb-4">HOWS<span class="text-indigo-500">.</span> TEAM</h1>
+        <header class="text-center mb-24">
+            <h1 class="text-7xl font-black italic mb-4">HOWS<span class="text-indigo-500">.</span></h1>
             <p class="text-gray-500 font-mono text-xs tracking-[0.5em] uppercase">核心合伙人与增长专家</p>
         </header>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-            
-            <div class="member-card glass rounded-[3rem] p-10 relative flex flex-col" onclick="this.classList.toggle('expanded')">
-                <div class="mb-8">
-                    <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl mb-6 shadow-lg shadow-indigo-500/20"></div>
-                    <h2 class="text-3xl font-bold">王皓頔 Andy</h2>
-                    <p class="text-indigo-400 text-xs font-mono mt-2 tracking-widest uppercase">Founder / Brand Strategist</p>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="member-card rounded-[3rem] p-10 overflow-hidden" onclick="this.classList.toggle('expanded')">
+                <div class="text-2xl font-bold mb-1">王皓頔 Andy</div>
+                <p class="text-indigo-400 text-[10px] font-mono tracking-widest uppercase mb-6">Founder / 创始人</p>
+                <div class="text-sm text-gray-400 leading-relaxed mb-6">英国南安普顿&伯明翰本硕。电通客户总监。</div>
+                <div class="details border-t border-white/10 pt-6 space-y-4">
+                    <p class="text-xs text-gray-300 font-bold text-indigo-300 uppercase">履历详情:</p>
+                    <p class="text-xs leading-loose text-gray-400">NaturEcho创始人，曾任电通客户总监，全面负责品牌塑造、市场推广与资源整合。擅长大型项目统筹规划，具备卓越的创新思维。</p>
+                    <p class="text-[10px] text-indigo-400">↑ 点击收起</p>
                 </div>
-                
-                <div class="space-y-6 text-sm text-gray-300">
-                    <p class="text-indigo-200 font-medium">英国南安普顿大学 & 伯明翰城市大学产品设计本硕</p>
-                    <p class="leading-relaxed">NaturEcho Jewelry 品牌主理人，引源文创联合创始人。拥有深厚的国际化视野，曾任 Dentsu 电通客户总监及英国 FEC 营销总监。</p>
-                    
-                    <div class="pt-6 border-t border-white/10 space-y-4">
-                        <h4 class="text-white font-bold">核心擅长</h4>
-                        <p class="text-gray-400">全面负责品牌塑造与资源整合，主导英国及海外市场营销策略。精通整合营销传播（IMC）与多方资源嫁接，助力企业实现从创意到商业目标的闭环。</p>
-                        <div class="flex flex-wrap gap-2 pt-2">
-                            <span class="brand-tag">资源整合</span><span class="brand-tag">项目统筹</span><span class="brand-tag">创新思维</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-auto pt-8 text-[10px] text-gray-600 font-mono tracking-widest">CLICK TO EXPAND DETAILS +</div>
             </div>
 
-            <div class="member-card glass rounded-[3rem] p-10 relative flex flex-col" onclick="this.classList.toggle('expanded')">
-                <div class="mb-8">
-                    <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-600 rounded-2xl mb-6 shadow-lg shadow-rose-500/20"></div>
-                    <h2 class="text-3xl font-bold">吴昊 Howie</h2>
-                    <p class="text-rose-400 text-xs font-mono mt-2 tracking-widest uppercase">Creative Partner / Art Director</p>
+            <div class="member-card rounded-[3rem] p-10 overflow-hidden" onclick="this.classList.toggle('expanded')">
+                <div class="text-2xl font-bold mb-1">吴昊 Howie</div>
+                <p class="text-rose-400 text-[10px] font-mono tracking-widest uppercase mb-6">Creative Partner / 创意合伙人</p>
+                <div class="text-sm text-gray-400 leading-relaxed mb-6">10年资深广告人。曾任利欧数字艺术总监。</div>
+                <div class="details border-t border-white/10 pt-6 space-y-4">
+                    <p class="text-xs text-gray-300 font-bold text-rose-300 uppercase">服务品牌:</p>
+                    <div class="pb-2 text-gray-500 italic">UNIQLO, KFC, Airbnb, 红旗, VIVO...</div>
+                    <p class="text-xs leading-loose text-gray-400">中国创意设计年鉴年度设计师。深谙品牌、媒介、社交到线下的推广设计。拥有极强的视觉表达与方案说服力。</p>
+                    <p class="text-[10px] text-rose-400">↑ 点击收起</p>
                 </div>
-                
-                <div class="space-y-6 text-sm text-gray-300">
-                    <p class="text-rose-200 font-medium">中国创意设计年鉴-年度设计师</p>
-                    <p class="leading-relaxed">从业10年的资深广告人，曾任利欧数字艺术总监。不仅受过行业奖项垂青，更是深谙品牌视觉与自传播逻辑的实战派。</p>
-                    
-                    <div class="pt-6 border-t border-white/10 space-y-4">
-                        <h4 class="text-white font-bold">服务品牌 (Partial List)</h4>
-                        <div class="flex flex-wrap gap-2 text-xs">
-                            <span class="brand-tag">UNIQLO</span><span class="brand-tag">KFC</span><span class="brand-tag">Airbnb</span><span class="brand-tag">红旗汽车</span><span class="brand-tag">VIVO</span><span class="brand-tag">IQOO</span><span class="brand-tag">吉利汽车</span>
-                        </div>
-                        <p class="text-gray-400 pt-2">对媒介传播、社交推广到线下体验设计有深刻理解，擅长用视觉表达解决商业痛点。</p>
-                    </div>
-                </div>
-                <div class="mt-auto pt-8 text-[10px] text-gray-600 font-mono tracking-widest">CLICK TO EXPAND DETAILS +</div>
             </div>
 
-            <div class="member-card glass rounded-[3rem] p-10 relative flex flex-col" onclick="this.classList.toggle('expanded')">
-                <div class="mb-8">
-                    <div class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl mb-6 shadow-lg shadow-emerald-500/20"></div>
-                    <h2 class="text-3xl font-bold">闫超 Yanchao</h2>
-                    <p class="text-emerald-400 text-xs font-mono mt-2 tracking-widest uppercase">Growth Strategist</p>
-                </div>
-                
-                <div class="space-y-6 text-sm text-gray-300">
-                    <p class="text-emerald-200 font-medium">美国 MBA & 墨尔本大学 MIS (信息系统)</p>
-                    <p class="leading-relaxed">系统接受商业战略与全球市场训练，具备数据分析与增长系统架构能力。深耕 DTC 品牌规模化增长体系。</p>
-                    
-                    <div class="pt-6 border-t border-white/10 space-y-4">
-                        <h4 class="text-white font-bold">五维增长体系</h4>
-                        <div class="grid grid-cols-1 gap-2 text-xs text-gray-400">
-                            <p>1. 市场选择：精准定位高潜力赛道</p>
-                            <p>2. 产品结构：优化 SKU 与 AOV 策略</p>
-                            <p>3. 增长模型：Meta / Google 广告闭环</p>
-                            <p>4. 数据系统：独立站重构与追踪</p>
-                            <p>5. 利润结构：爆品测试与成本模型设计</p>
-                        </div>
+            <div class="member-card rounded-[3rem] p-10 overflow-hidden" onclick="this.classList.toggle('expanded')">
+                <div class="text-2xl font-bold mb-1">闫超 Yanchao</div>
+                <p class="text-emerald-400 text-[10px] font-mono tracking-widest uppercase mb-6">Growth Expert / 海外媒介负责人</p>
+                <div class="text-sm text-gray-400 leading-relaxed mb-6">美国MBA & 墨尔本大学MIS背景。</div>
+                <div class="details border-t border-white/10 pt-6 space-y-4">
+                    <p class="text-xs text-gray-300 font-bold text-emerald-300 uppercase">五维增长体系:</p>
+                    <div class="text-[11px] text-gray-400 space-y-2">
+                        <p>1. 市场选择 & 产品结构</p>
+                        <p>2. 增长模型 & 数据系统</p>
+                        <p>3. 利润结构设计</p>
                     </div>
+                    <p class="text-xs leading-loose text-gray-400">深耕DTC出海，擅长将品牌出海拆解为系统化的增长架构，而非单点流量运营。</p>
+                    <p class="text-[10px] text-emerald-400">↑ 点击收起</p>
                 </div>
-                <div class="mt-auto pt-8 text-[10px] text-gray-600 font-mono tracking-widest">CLICK TO EXPAND DETAILS +</div>
             </div>
-
         </div>
     </div>
-
-    <script>
-        // 添加点击交互逻辑：点击时高度拉伸展示更多内容
-    </script>
 </body>
 </html>
