@@ -2,70 +2,125 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <title>HOWS 双引号 | Core Leadership</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOWS 双引号 | Digital Creative Agency</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background: #000; color: #fff; font-family: 'PingFang SC', sans-serif; overflow-x: hidden; }
-        .member-card { 
-            background: rgba(255, 255, 255, 0.03); 
-            border: 1px solid rgba(255, 255, 255, 0.1); 
-            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-            cursor: pointer; height: 420px;
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap');
+        
+        body { background: #000; color: #fff; font-family: 'PingFang SC', sans-serif; margin: 0; }
+        
+        section { height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center; position: relative; scroll-snap-align: start; overflow: hidden; }
+        html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+
+        /* 第一屏光影 */
+        .hero-glow { position: absolute; width: 60vw; height: 60vw; background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%); z-index: 0; }
+
+        /* 第二屏卡片 */
+        .service-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); transition: 0.3s; }
+        .service-card:hover { border-color: #6366f1; background: rgba(255,255,255,0.05); }
+
+        /* 第三屏：莫比乌斯环光效 */
+        .mobius-container { position: relative; width: 400px; height: 200px; }
+        .loop {
+            position: absolute; width: 100%; height: 100%;
+            border: 8px solid transparent;
+            border-radius: 100px;
+            border-top: 8px solid #6366f1;
+            box-shadow: 0 -10px 20px rgba(99, 102, 241, 0.4);
+            animation: rotate-loop 4s linear infinite;
         }
-        .member-card:hover { border-color: #6366f1; transform: translateY(-10px); background: rgba(255, 255, 255, 0.06); }
-        .member-card.expanded { height: 850px; border-color: #6366f1; }
-        .details { opacity: 0; transition: all 0.5s ease; pointer-events: none; }
-        .expanded .details { opacity: 1; pointer-events: auto; }
-        .brand-tag { font-size: 10px; padding: 2px 8px; border-radius: 4px; background: rgba(99, 102, 241, 0.1); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.2); margin: 2px; display: inline-block; }
+        .loop-2 { transform: rotate(180deg); border-top: 8px solid #a855f7; box-shadow: 0 -10px 20px rgba(168, 85, 247, 0.4); }
+        
+        @keyframes rotate-loop {
+            0% { filter: hue-rotate(0deg) brightness(1); }
+            50% { filter: hue-rotate(180deg) brightness(1.5); }
+            100% { filter: hue-rotate(360deg) brightness(1); }
+        }
+
+        .scroll-hint { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); font-size: 10px; color: #444; letter-spacing: 4px; animation: bounce 2s infinite; }
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);} 40% {transform: translateY(-10px) translateX(-50%);} 60% {transform: translateY(-5px) translateX(-50%);} }
     </style>
 </head>
-<body class="py-20 px-6">
-    <div class="max-w-7xl mx-auto">
-        <header class="text-center mb-24">
-            <h1 class="text-7xl font-black italic mb-4">HOWS<span class="text-indigo-500">.</span></h1>
-            <p class="text-gray-500 font-mono text-xs tracking-[0.5em] uppercase">核心合伙人与增长专家</p>
-        </header>
+<body>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div class="member-card rounded-[3rem] p-10 overflow-hidden" onclick="this.classList.toggle('expanded')">
-                <div class="text-2xl font-bold mb-1">王皓頔 Andy</div>
-                <p class="text-indigo-400 text-[10px] font-mono tracking-widest uppercase mb-6">Founder / 创始人</p>
-                <div class="text-sm text-gray-400 leading-relaxed mb-6">英国南安普顿&伯明翰本硕。电通客户总监。</div>
-                <div class="details border-t border-white/10 pt-6 space-y-4">
-                    <p class="text-xs text-gray-300 font-bold text-indigo-300 uppercase">履历详情:</p>
-                    <p class="text-xs leading-loose text-gray-400">NaturEcho创始人，曾任电通客户总监，全面负责品牌塑造、市场推广与资源整合。擅长大型项目统筹规划，具备卓越的创新思维。</p>
-                    <p class="text-[10px] text-indigo-400">↑ 点击收起</p>
-                </div>
+    <section id="hero">
+        <div class="hero-glow"></div>
+        <div class="z-10 text-center">
+            <h1 class="text-[12vw] font-black italic tracking-tighter leading-none mb-4 opacity-90">HOWS<span class="text-indigo-500">.</span></h1>
+            <p class="text-xl md:text-2xl text-gray-400 font-light tracking-[0.3em] uppercase">Digital Creative Agency</p>
+            <div class="mt-12 h-[1px] w-24 bg-indigo-500 mx-auto opacity-50"></div>
+        </div>
+        <div class="scroll-hint uppercase">Scroll to explore</div>
+    </section>
+
+    <section id="services" class="bg-[#050505]">
+        <div class="max-w-6xl mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-20">
+            <div>
+                <h2 class="text-5xl font-bold mb-8 italic">打破全球营销边界<br><span class="text-indigo-500 underline decoration-1 underline-offset-8">助力企业发展无限</span></h2>
+                <p class="text-gray-400 leading-relaxed text-lg">
+                    HOWS/双引号成立于2015年，是专注于新锐品牌力打造的品牌营销咨询 & 创意热店。
+                    我们以“让品牌自传播”为目标，助力品牌提升综合竞争力。
+                </p>
             </div>
-
-            <div class="member-card rounded-[3rem] p-10 overflow-hidden" onclick="this.classList.toggle('expanded')">
-                <div class="text-2xl font-bold mb-1">吴昊 Howie</div>
-                <p class="text-rose-400 text-[10px] font-mono tracking-widest uppercase mb-6">Creative Partner / 创意合伙人</p>
-                <div class="text-sm text-gray-400 leading-relaxed mb-6">10年资深广告人。曾任利欧数字艺术总监。</div>
-                <div class="details border-t border-white/10 pt-6 space-y-4">
-                    <p class="text-xs text-gray-300 font-bold text-rose-300 uppercase">服务品牌:</p>
-                    <div class="pb-2 text-gray-500 italic">UNIQLO, KFC, Airbnb, 红旗, VIVO...</div>
-                    <p class="text-xs leading-loose text-gray-400">中国创意设计年鉴年度设计师。深谙品牌、媒介、社交到线下的推广设计。拥有极强的视觉表达与方案说服力。</p>
-                    <p class="text-[10px] text-rose-400">↑ 点击收起</p>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="service-card p-6 rounded-2xl">
+                    <div class="text-indigo-400 mb-4 text-xs font-mono">01. BRANDING</div>
+                    <div class="text-sm font-bold text-gray-200">品牌策划升级</div>
                 </div>
-            </div>
-
-            <div class="member-card rounded-[3rem] p-10 overflow-hidden" onclick="this.classList.toggle('expanded')">
-                <div class="text-2xl font-bold mb-1">闫超 Yanchao</div>
-                <p class="text-emerald-400 text-[10px] font-mono tracking-widest uppercase mb-6">Growth Expert / 海外媒介负责人</p>
-                <div class="text-sm text-gray-400 leading-relaxed mb-6">美国MBA & 墨尔本大学MIS背景。</div>
-                <div class="details border-t border-white/10 pt-6 space-y-4">
-                    <p class="text-xs text-gray-300 font-bold text-emerald-300 uppercase">五维增长体系:</p>
-                    <div class="text-[11px] text-gray-400 space-y-2">
-                        <p>1. 市场选择 & 产品结构</p>
-                        <p>2. 增长模型 & 数据系统</p>
-                        <p>3. 利润结构设计</p>
-                    </div>
-                    <p class="text-xs leading-loose text-gray-400">深耕DTC出海，擅长将品牌出海拆解为系统化的增长架构，而非单点流量运营。</p>
-                    <p class="text-[10px] text-emerald-400">↑ 点击收起</p>
+                <div class="service-card p-6 rounded-2xl">
+                    <div class="text-indigo-400 mb-4 text-xs font-mono">02. CREATIVE</div>
+                    <div class="text-sm font-bold text-gray-200">视觉创意设计</div>
+                </div>
+                <div class="service-card p-6 rounded-2xl">
+                    <div class="text-indigo-400 mb-4 text-xs font-mono">03. GLOBAL</div>
+                    <div class="text-sm font-bold text-gray-200">跨境出海联合运营</div>
+                </div>
+                <div class="service-card p-6 rounded-2xl">
+                    <div class="text-indigo-400 mb-4 text-xs font-mono">04. CONSULT</div>
+                    <div class="text-sm font-bold text-gray-200">营销咨询</div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <section id="framework">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="mb-16 flex justify-center">
+                <div class="mobius-container">
+                    <div class="loop"></div>
+                    <div class="loop loop-2"></div>
+                    <div class="absolute inset-0 flex items-center justify-center text-[10px] tracking-[0.5em] font-mono text-indigo-300 opacity-80">
+                        GROWTH LOOP
+                    </div>
+                </div>
+            </div>
+            
+            <h2 class="text-4xl font-black italic mb-12">高标准内容输出<br><span class="text-indigo-500">造就领先的出海联合运营商</span></h2>
+            
+            <div class="flex flex-wrap justify-center gap-12 text-sm font-mono tracking-widest text-gray-400">
+                <div class="flex flex-col items-center">
+                    <span class="text-white text-lg">市场选择</span>
+                    <span class="mt-2 text-[10px] opacity-30">MARKET</span>
+                </div>
+                <div class="text-indigo-800">→</div>
+                <div class="flex flex-col items-center">
+                    <span class="text-white text-lg">产品结构</span>
+                    <span class="mt-2 text-[10px] opacity-30">PRODUCT</span>
+                </div>
+                <div class="text-indigo-800">→</div>
+                <div class="flex flex-col items-center">
+                    <span class="text-white text-lg">增长模型</span>
+                    <span class="mt-2 text-[10px] opacity-30">GROWTH</span>
+                </div>
+                <div class="text-indigo-800">→</div>
+                <div class="flex flex-col items-center">
+                    <span class="text-white text-lg">数据利润</span>
+                    <span class="mt-2 text-[10px] opacity-30">PROFIT</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </body>
 </html>
